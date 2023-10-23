@@ -26,7 +26,7 @@ file_extension = os.path.splitext(read_file)[1]
 if file_extension == '.tsv':
   separator = '\t'
 elif file_extension == '.csv':
-  separator = config['data']['separator'] if config['data']['separator'] else ','
+  separator = config['data'].get('separator', ',')
 else:
   raise ValueError("Unsupported file format, please use .tsv or .csv")
 
