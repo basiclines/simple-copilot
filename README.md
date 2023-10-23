@@ -4,12 +4,20 @@
 
 This project is an implementation of [OpenAI's Search and Ask Cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/Question_answering_using_embeddings.ipynb). It serves as a specialized Copilot capable of answering specific questions based on provided data sets. The system is versatile, allowing for the incorporation of data ranging from Mobile App Reviews to Corporate Handbooks.
 
-### Features
+## Features
 - Answer questions in natural language
 - Uses OpenAI's embeddings for precise search
 - Uses OpenAI's chat/completions for answering questions
 - Extensible to various data sources and types
 - Easily configurable for different use-cases
+
+## How it works
+OpenAI embeddings convert documents and queries into vector representations for comparison. They map text and code to vectors in a high-dimensional space, with closer embeddings indicating similar data. Practical applications include search, clustering and recommendations.
+
+We can expand to chat-based applications using the search-and-ask method:
+
+* **Search**: A knowledge base is formed with document embeddings for each section. When a user queries, the question is converted into a query embedding to find relevant sections in the knowledge base.
+* **Ask**: This relevant information both results and the user query is then used to create a prompt to generate user responses.
 
 ## Dependencies
 
