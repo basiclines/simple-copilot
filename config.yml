@@ -1,0 +1,14 @@
+openai:
+  key: "" # Your OpenAI API key
+  embedding_model: "text-embedding-ada-002"
+  chat_model: "gpt-3.5-turbo"
+data:
+  src: "data/my-file-with-text-entries.csv"
+  dist: "data/my-file-with-text-entries-and-embeddings.csv"
+  text_column: "Text" # Name of the column where to read Text
+  embedding_column: "Embedding" # Name of the column where to read/write Embeddings
+prompt:
+  system: "Context prompt with custom instructions to provide better results"
+  user: 'Instruction prompt to indicate the model we want to get answers from the results presented bellow.'
+  present_result: "Presents a single result inside the prompt:"
+  budget: 4096 # How big do we want to generate prompts, the bigger the more precise results.
