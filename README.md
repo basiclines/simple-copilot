@@ -15,7 +15,7 @@ This project is an implementation of [OpenAI's Search and Ask Cookbook](https://
 
 Run the following command to install the necessary packages:
 ```bash
-pip3 install -U argparse openai pandas pyyaml scipy tiktoken
+pip3 install -U argparse openai pandas yaml scipy tiktoken
 ```
 
 ## Quick Start
