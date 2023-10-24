@@ -23,7 +23,7 @@ We can expand to chat-based applications using the search-and-ask method:
 
 Run the following command to install the necessary packages:
 ```bash
-pip3 install -U argparse openai pandas yaml scipy tiktoken
+pip3 install -U argparse openai pandas yaml scipy tiktoken colorama
 ```
 
 ## Quick Start

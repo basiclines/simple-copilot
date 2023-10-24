@@ -1,13 +1,14 @@
-import os
-import argparse
-import yaml
-import openai # for calling the OpenAI API
-import pandas as pd # for storing text and embeddings data in .tsv/.csv
-from scipy import spatial # for calculating vector similarities for search
-from ast import literal_eval # for converting embeddings saved as strings back to arrays
+import os                                           # Read file extensions
+import argparse                                     # Read command line arguments
+import yaml                                         # Read .yaml files
+import openai                                       # Calling the OpenAI API
+import pandas as pd                                 # Storing text and embeddings data in .tsv/.csv
+from scipy import spatial                           # Calculating vector similarities for search
+from ast import literal_eval                        # Converting embeddings saved as strings back to arrays
 from openai.embeddings_utils import get_embedding
-import tiktoken # for counting tokens
-import sys # handle command line parameters
+import tiktoken                                     # Counting tokens
+import sys                                          # handle command line parameters
+from colorama import Fore, Back, Style              # Colored text output
 
 # Define arguments for command line
 parser = argparse.ArgumentParser(description='Process some named arguments.')
@@ -53,7 +54,7 @@ def get_results_ranked_by_relatedness(
     relatedness_fn=lambda x, y: 1 - spatial.distance.cosine(x, y),
     top_n: int = 100
 ) -> tuple[list[str], list[float]]:
-    print("Searching for related entries...")
+    print(Fore.YELLOW + "Searching for related entries...")
     query_embedding_response = openai.Embedding.create(
         model=openai_embed_model,
         input=query,
@@ -109,14 +110,21 @@ def ask(
     {"role": "system", "content": system_prompt},
     {"role": "user", "content": message},
   ]
-  print("Asking to GPT...")
+  print(Fore.YELLOW + "Asking to GPT...")
   response = openai.ChatCompletion.create(
     model=openai_chat_model,
     messages=messages,
     temperature=0
   )
   response_message = response["choices"][0]["message"]["content"]
-  print('GPT response:')
-  print(response_message)
+  print('-' * os.get_terminal_size().columns)
+  print('\n')
+  print(Fore.BLUE + '💬 Your question:')
+  print(Fore.BLUE + args.query)
+  print('\n')
+  print(Fore.GREEN + '🤖 GPT response:')
+  print(Fore.GREEN + response_message)
+  print('\n')
+  print('-' * os.get_terminal_size().columns)
 
 ask(args.query)
