@@ -1,5 +1,8 @@
 # Simple Copilot for Specialized Question-Answering
 
+<img src="https://github.com/basiclines/simple-copilot/assets/532028/c8f02435-3600-4c1a-9372-1f00837089c1" width="512" height="512">
+
+
 ## About
 
 This project is an implementation of [OpenAI's Search and Ask Cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/Question_answering_using_embeddings.ipynb). It serves as a specialized Copilot capable of answering specific questions based on provided data sets. The system is versatile, allowing for the incorporation of data ranging from Mobile App Reviews to Corporate Handbooks.
@@ -51,6 +54,7 @@ Create different configuration YAML files tailored to various data sets and use-
 - [Introduction to Text Embeddings with OpenAI](https://www.datacamp.com/tutorial/introduction-to-text-embeddings-with-the-open-ai-api)
 - [OpenAI Embeddings Use-Cases](https://platform.openai.com/docs/guides/embeddings/use-cases)
 - [Semantic Text Search Using Embeddings](https://cookbook.openai.com/examples/semantic_text_search_using_embeddings)
+- [Embeddings: What they are and why they matter](https://simonwillison.net/2023/Oct/23/embeddings/)
 
 ## License
 
