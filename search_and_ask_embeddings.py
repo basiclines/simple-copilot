@@ -117,7 +117,13 @@ def ask(
     temperature=0
   )
   response_message = response["choices"][0]["message"]["content"]
-  print('-' * os.get_terminal_size().columns)
+
+  try:
+    terminal_columns = os.get_terminal_size().columns
+  except OSError:
+    terminal_columns = 80  # Fallback value for terminal width
+
+  print('-' * terminal_columns)
   print('\n')
   print(Fore.BLUE + '💬 Your question:')
   print(Fore.BLUE + args.query)
@@ -125,6 +131,6 @@ def ask(
   print(Fore.GREEN + '🤖 GPT response:')
   print(Fore.GREEN + response_message)
   print('\n')
-  print('-' * os.get_terminal_size().columns)
+  print('-' * terminal_columns)
 
 ask(args.query)
